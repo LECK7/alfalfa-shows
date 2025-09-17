@@ -1,6 +1,10 @@
 .about {
     padding: 80px 20px;
     background: #ffffff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .about-container {

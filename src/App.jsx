@@ -5,7 +5,7 @@ import Hero from './Components/Hero'
 import Contact from './Components/Contact'
 import Footer from './Components/Footer'
 import Shows from './Components/Shows'
-import About from './Components/about'
+import About from './Components/About'
 import WhatsappButton from './Components/WhatsappButton'
 
 function App() {

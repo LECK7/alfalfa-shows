@@ -144,6 +144,27 @@
     gap: 12px;
   }
 
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .form-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .form-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 100%;
+  }
+
   .request-form input:focus,
   .request-form textarea:focus,
   .personaje-input:focus {

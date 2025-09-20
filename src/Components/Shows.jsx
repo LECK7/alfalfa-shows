@@ -158,11 +158,17 @@ function Shows() {
                 <input type="text" name="nombre" placeholder="Tu nombre" required />
                 <input type="email" name="correo" placeholder="Correo electrónico" required />
                 <input type="text" name="evento" placeholder="Tipo de evento (cumpleaños, baby shower...)" required />
-                <input 
-                  type="date" 
-                  name="fecha" 
-                  required
-                  min = {new Date().toISOString().split("T")[0]} />
+                <div className="form-group">
+                  <label htmlFor="fecha" className="form-label">📅 Fecha del evento:</label>
+                  <input
+                    type="date"
+                    name="fecha"
+                    id="fecha"
+                    required
+                    min={new Date().toISOString().split("T")[0]}
+                    className="form-input"
+                  />
+                </div>
                 <textarea name="mensaje" placeholder="Mensaje adicional o detalles del evento" rows="4"></textarea>
                 {["SHOW EXPRESS", "CIRCO EN ACCIÓN"].includes(selectedShow.title) && (
                   <div className="show-mix-option">

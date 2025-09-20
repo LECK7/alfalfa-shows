@@ -126,12 +126,78 @@
 
   .titulo1{
     font-size: 25px;
+    transition: font-size 0.3s ease-in;
+    &:hover{
+      font-size: 30px;
+      transition: 0.8s;
+    }
   }
   .titulo2{
     font-size: 20px;
   }
   .titulo3{
     font-size: 25px;
+    transition: font-size 0.3s ease-in;
+    &:hover{
+      font-size: 30px;
+      transition: 0.8s;
+    }
+  }
+
+  .nav.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centra los enlaces */
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    text-align: center; /* centra los textos */
+  }
+
+  .cta {
+    display: none; /* lo ocultamos en móvil */
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap; /* permite que el nav se baje a otra línea */
+    padding: 15px 20px; /* menos padding en móvil */
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 24px;
+  }
+
+  .nav {
+    display: none;
+    width: 100%;
+  }
+
+  .titulo1{
+    font-size: 20px;
+    transition: font-size 0.3s ease-in;
+    &:hover{
+      font-size: 25px;
+      transition: 0.8s;
+    }
+  }
+  .titulo2{
+    font-size: 15px;
+  }
+  .titulo3{
+    font-size: 20px;
+    transition: font-size 0.3s ease-in;
+    &:hover{
+      font-size: 25px;
+      transition: 0.8s;
+    }
   }
 
   .nav.active {

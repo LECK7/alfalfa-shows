@@ -21,9 +21,9 @@ function Header() {
         </style>
 
         <div className="titulo-container">
-          <a className='titulo1' href="#hero">Alfalfa</a>
+          <a className='titulo1' href="#alfalfa">Alfalfa</a>
           <a className='titulo2' href="#hero"> y </a>
-          <a className='titulo3' href="#hero">Jojochita</a>
+          <a className='titulo3' href="#jojochita">Jojochita</a>
         </div>
 
         <button 

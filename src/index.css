@@ -1,11 +1,101 @@
+/* Desktop por defecto */
 #contact,
 #shows,
-#hero{
+#hero {
   scroll-margin-top: 80px;
 }
-#about{
-    scroll-margin-top: 200px;
+
+#about {
+  scroll-margin-top: 200px;
 }
-body.modal-open {
-    overflow: hidden;
+
+#jojochita {
+  scroll-margin-top: 50px;
 }
+
+#alfalfa {
+  scroll-margin-top: 10px;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  #contact,
+  #shows,
+  #hero {
+    scroll-margin-top: 60px;
+  }
+
+  #about {
+    scroll-margin-top: 150px;
+  }
+
+  #jojochita {
+    scroll-margin-top: 40px;
+  }
+
+  #alfalfa {
+    scroll-margin-top: 20px;
+  }
+}
+
+/* Móviles grandes */
+@media (max-width: 768px) {
+  #contact,
+  #shows,
+  #hero {
+    scroll-margin-top: 50px;
+  }
+
+  #about {
+    scroll-margin-top: 120px;
+  }
+
+  #jojochita {
+    scroll-margin-top: 10px;
+  }
+
+  #alfalfa {
+    scroll-margin-top: 30px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  #contact,
+  #shows,
+  #hero {
+    scroll-margin-top: 70px;
+  }
+
+  #about {
+    scroll-margin-top: 100px;
+  }
+
+  #jojochita {
+    scroll-margin-top: 20px;
+  }
+
+  #alfalfa {
+    scroll-margin-top: 20px;
+  }
+}
+@media (max-width: 400px) {
+  #contact,
+  #shows,
+  #hero {
+    scroll-margin-top: 70px;
+  }
+
+  #about {
+    scroll-margin-top: 100px;
+  }
+
+  #jojochita {
+    scroll-margin-top: 20px;
+  }
+
+  #alfalfa {
+    scroll-margin-top: 50px;
+  }
+}
+

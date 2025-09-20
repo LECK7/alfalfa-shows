@@ -7,12 +7,16 @@ import Footer from './Components/Footer'
 import Shows from './Components/Shows'
 import About from './Components/About'
 import WhatsappButton from './Components/WhatsappButton'
+import Alfalfa from './Components/Alfalfa'
+import Jojochita from './Components/Jojochita'
 
 function App() {
   return (
     <>
     <Header />
     <Hero />
+    <Alfalfa />
+    <Jojochita />
     <Shows />
     <About />
     <Contact />

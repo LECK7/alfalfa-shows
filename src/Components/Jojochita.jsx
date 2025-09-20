@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import './Personaje.css';
-import imgJojochita from '../assets/jojochita.png';
+import imgJojochita from '../assets/ojochita.png';
 
 function Jojochita() {
   const ref = useRef(null);

@@ -9,7 +9,7 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    const phoneNumber = '+51949570614'
+    const phoneNumber = '+51938164111'
     const text = `*Hola!* 👋\n\n` +
                `Soy *${name}* y te escribo desde el formulario de contacto.\n` +
                `📧 Mi correo es: ${email}\n\n` +

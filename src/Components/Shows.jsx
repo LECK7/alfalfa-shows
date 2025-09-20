@@ -9,7 +9,11 @@ import './Shows.css'
 
 function Shows() {
   const shows = [
-    { id: 1, title: "SHOW EXPRESS", desc: "Diversión asegurada con juegos y risas.", img: img_soga,
+    { id: 1, 
+      title: "SHOW EXPRESS", 
+      desc: "Diversión asegurada con juegos y risas.", 
+      img: img_soga,
+      precio: "S/500",
       activities: [
         "Juegos de Competencia",
         "Bailoteo con canciones divertidas",
@@ -18,7 +22,11 @@ function Shows() {
         "Mágia purita"
       ]
      },
-    { id: 2, title: "CIRCO EN ACCIÓN", desc: "Ilusiones y trucos que sorprenden a todos.", img: img_monociclo,
+    { id: 2, 
+      title: "CIRCO EN ACCIÓN", 
+      desc: "Ilusiones y trucos que sorprenden a todos.", 
+      img: img_monociclo,
+      precio: "S/600",
       activities: [
         "Divertijuegos y cantajuegos interactivos",
         "Rutinas Circences(1 personaje 'Cientifico Loco','Alfalfini Musucloso','Mago pelo de Mango')",
@@ -28,16 +36,28 @@ function Shows() {
         "Explosión de burbujas con Jojochita",
       ]
      },
-    { id: 3, title: "Caritas Pintadas", desc: "Cuentos y personajes para los más pequeños.", img: img_cientifico, 
+    { id: 3, 
+      title: "Caritas Pintadas", 
+      desc: "Cuentos y personajes para los más pequeños.", 
+      img: img_cientifico,
+      precio: "S/100",
       activities: [
         "Caritas pintadas de diversos personajes para niños y niñas"
       ] },
-    { id: 4, title: "Glitter Tatto", desc: "Cuentos y personajes para los más pequeños.", img: img_zapatos,
+    { id: 4, 
+      title: "Glitter Tatto", 
+      desc: "Cuentos y personajes para los más pequeños.", 
+      img: img_zapatos,
+      precio: "S/100",
       activities: [
         "Tatuajes con Glitter",
         "Diversos diseños y colores, para niños y niñas"
       ] },
-    { id: 5, title: "PEQUE BABY SHOWER", desc: "Cuentos y personajes para los más pequeños.", img: img_super, 
+    { id: 5, 
+      title: "PEQUE BABY SHOWER", 
+      desc: "Cuentos y personajes para los más pequeños.", 
+      img: img_super, 
+      precio: "S/500",
       activities: [
         "Juegos divertidos y coreografias interactivas",
         "Monociclo",
@@ -46,7 +66,11 @@ function Shows() {
         "Entrega de regalos"
       ]
     },
-    { id: 6, title: "Cuenta Cuentos", desc: "Cuentos y personajes para los más pequeños.", img: img_calacunca,
+    { id: 6, 
+      title: "Cuenta Cuentos", 
+      desc: "Cuentos y personajes para los más pequeños.", 
+      img: img_calacunca,
+      precio: "S/600",
       activities: [
         "Presentación animada con personajes",
         "Juegos interactivos y dinámicas grupales",
@@ -61,10 +85,14 @@ function Shows() {
   const [selectedShow, setSelectedShow] = useState(null);
 
   const openShowDetail = (show) => setSelectedShow(show);
-  const closeShowDetail = () => setSelectedShow(null);
+  const closeShowDetail = () => {
+    setSelectedShow(null);
+    setShowMix(false);
+  }
   useEffect(() => {
     document.body.classList.toggle('modal-open', !!selectedShow);
   }, [selectedShow]);
+  const [showMix, setShowMix] = useState(false);
 
   return (
     <section className="shows" id="shows">
@@ -93,16 +121,76 @@ function Shows() {
                   <li key={index}>{item}</li>
                 ))}
               </ul>
+              <div className="precio-box">
+                <span className="precio-label">💰 Precio:</span> {selectedShow.precio}
+              </div>
             </section>
             <section className="request-form">
               <h3>Solicita este show</h3>
-              <form>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const nombre = e.target.nombre.value;
+                  const correo = e.target.correo.value;
+                  const evento = e.target.evento.value;
+                  const fecha = e.target.fecha.value;
+                  const mensaje = e.target.mensaje.value;
+
+                  const phoneNumber = '+51938164111';
+                  const mixText = showMix
+                  ? `\n🧩 Servicio adicional: SHOW MIX (S/150)`
+                  : "";
+                  const personaje = e.target.personaje?.value;
+                  const personajeText = personaje ? `🎭 Personaje solicitado: ${personaje}\n` : ""; 
+                  const text = `*Hola!* 👋\n\n` +
+                    `Soy *${nombre}* y quiero solicitar el show *${selectedShow.title}*.\n` +
+                    `📧 Mi correo es:* ${correo}*\n` +
+                    `📅 Fecha del evento: *${fecha}*\n` +
+                    `🎉 Tipo de evento: *${evento}*\n` +
+                    `💰 Precio del show: *${selectedShow.precio}*` + mixText + personajeText +
+                    `📝 Mensaje adicional:\n${mensaje}\n\n` +
+                    `✨ ¡Espero tu respuesta!`;
+
+                  const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(text)}`;
+                  window.open(url, '_blank');
+                }}
+              >
                 <input type="text" name="nombre" placeholder="Tu nombre" required />
                 <input type="email" name="correo" placeholder="Correo electrónico" required />
                 <input type="text" name="evento" placeholder="Tipo de evento (cumpleaños, baby shower...)" required />
-                <input type="date" name="fecha" required />
+                <input 
+                  type="date" 
+                  name="fecha" 
+                  required
+                  min = {new Date().toISOString().split("T")[0]} />
                 <textarea name="mensaje" placeholder="Mensaje adicional o detalles del evento" rows="4"></textarea>
-                <button type="submit" className="btn">Enviar solicitud</button>
+                {["SHOW EXPRESS", "CIRCO EN ACCIÓN"].includes(selectedShow.title) && (
+                  <div className="show-mix-option">
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={showMix}
+                        onChange={(e) => setShowMix(e.target.checked)}
+                      />
+                      Añadir servicio especial SHOW MIX (S/150)
+                    </label>
+
+                    {showMix && (
+                        <>
+                          <p className="show-mix-desc">
+                            🎭 Puedes añadir un personaje favorito al espectáculo.
+                          </p>
+                          <input
+                            type="text"
+                            name="personaje"
+                            placeholder="Personaje favorito (opcional)"
+                            className="personaje-input"
+                          />
+                        </>
+                      )}
+                  </div>
+                )}
+                <button type="submit" className="btn">Enviar por WhatsApp</button>
               </form>
             </section>
             <section className="important-info">

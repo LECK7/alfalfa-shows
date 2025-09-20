@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import './Personaje.css';
-import imgJojochita from '../assets/ojochita.png';
 
 function Jojochita() {
   const ref = useRef(null);
@@ -26,7 +25,7 @@ function Jojochita() {
         </div>
         <img
           ref={ref}
-          src={imgJojochita}
+          src="/ojochita.png"
           alt="Jojochita"
           className={`personaje-img ${visible ? 'slide-in-right' : 'slide-out-right'}`}
         />
